@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import Button from '@material-ui/core/Button';
 import Header from './Header'
 
-class Main extends Component {
+class Login extends Component {
     _isMounted = false;
 constructor(props) {
     super(props);
@@ -17,7 +17,7 @@ constructor(props) {
 }
 componentDidMount() {
     this._isMounted = true;
-    fetch('http://localhost:3001/api')
+    fetch('http://localhost:3001/api/login')
         .then(res => res.json())
         .then(data => {
             if(this._isMounted){
@@ -40,7 +40,6 @@ tick() {
     )
     }
 }
-
 render() {
     return (
     <div className="App">
@@ -59,4 +58,4 @@ render() {
   } 
 }
 
-export default Main;
+export default Login;

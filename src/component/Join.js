@@ -3,21 +3,21 @@ import logo from '../logo.svg';
 import Button from '@material-ui/core/Button';
 import Header from './Header'
 
-class Main extends Component {
-    _isMounted = false;
+class Join extends Component {
+_isMounted = false;
 constructor(props) {
     super(props);
     this.state = {
         date : new Date().toLocaleTimeString()
     };
     this.state = {
-      title: null
+        title: null
     }
     this._isMounted = false;
 }
 componentDidMount() {
     this._isMounted = true;
-    fetch('http://localhost:3001/api')
+    fetch('http://localhost:3001/api/join')
         .then(res => res.json())
         .then(data => {
             if(this._isMounted){
@@ -59,4 +59,4 @@ render() {
   } 
 }
 
-export default Main;
+export default Join;

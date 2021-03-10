@@ -12,8 +12,8 @@ const Header = () => (
       <AppBar position="static">
         <Toolbar>
             <Button><Link to= '/' className="links">Home</Link></Button>
-            <Button><Link to= '/Signpage' className="links">회원가입</Link></Button>
-            <Button><Link to= '/Login' className="links">로그인</Link></Button>
+            <Button><Link to= '/login' className="links">로그인</Link></Button>
+            <Button><Link to= '/join' className="links">회원가입</Link></Button>
         </Toolbar>
       </AppBar>
 );
