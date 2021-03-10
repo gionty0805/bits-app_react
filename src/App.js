@@ -1,32 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import Main from './component/Main'
 class App extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: null
-    }
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:3001/api')
-      .then(res => res.json())
-      .then(data => this.setState({title: data.title}));
-  }
-
+  
+        
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <div>
-            {this.state.title? <h1>{this.state.title}</h1>:<h1>loading...</h1>}
-          </div>
-        </header>
+    return(
+      <div>
+        <Router>
+          <Route path="/" exact component={Main} />
+          {/* <Route path="/about" component={About} />
+          <Route path="/memo" component={Memo} /> */}
+        </Router>
       </div>
-    );
+    )
   }
 }
 
