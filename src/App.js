@@ -1,21 +1,24 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Main from './component/Main'
-import Login from './component/Login'
-import Join from './component/Join'
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import LandingPage from "./components/views/LandingPage/LandingPage";
+import LoginPage from "./components/views/LoginPage/LoginPage";
+import RegisterPage from "./components/views/RegisterPage/RegisterPage";
+import Auth from "./hoc/auth";
 class App extends React.Component{
-  render() {
+  render (){
     return(
+    <Router>
       <div>
-        <Router>
-          <Route path="/" exact component={Main} />
-          <Route path="/login" component={Login} />
-          <Route path="/join" component={Join} />
-        </Router>
+        <Switch>
+          <Route exact path="/" component={Auth(LandingPage, true)} />
+          <Route exact path="/login" component={Auth(LoginPage, false)} />
+          <Route exact path="/register" component={Auth(RegisterPage, false)} />
+        </Switch>
       </div>
+    </Router>
     )
-  }
+  };
 }
 
 export default App;
